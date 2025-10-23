@@ -8,8 +8,7 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-</head>
+    <link href="css/style.css" rel="stylesheet"> </head>
 <body>
     <header class="app-header">
         <button class="menu-toggle d-lg-none" id="sidebarToggleMobile"><i class="fas fa-bars"></i></button>
@@ -31,7 +30,7 @@
                         <div class="d-flex"><i class="fas fa-headset"></i><span class="menu-text">고객 상담</span></div>
                         <i class="fas fa-chevron-down toggle-icon chevron-icon"></i>
                     </div>
-                    <ul class="sidebar-submenu collapse" id="submenu-customer" style="">
+                    <ul class="sidebar-submenu collapse" id="submenu-customer">
                         <li class="app-sidebar-item">
                             <div class="sidebar-sub-category-header" data-bs-toggle="collapse" data-bs-target="#case-list-customer-gpts" aria-expanded="false">
                                 <div class="d-flex"><i class="fab fa-teamspeak"></i><span class="menu-text">[GPTs 활용]</span></div>
@@ -48,7 +47,7 @@
                     </ul>
                 </li>
                 <li>
-                    <div class="sidebar-mid-category-header" data-bs-toggle="collapse" data-bs-target="#submenu-doc" aria-expanded="false">
+                    <div class="sidebar-mid-category-header collapsed" data-bs-toggle="collapse" data-bs-target="#submenu-doc" aria-expanded="false">
                         <div class="d-flex"><i class="fas fa-file-alt"></i><span class="menu-text">문서/데이터 처리</span></div>
                         <i class="fas fa-chevron-down toggle-icon chevron-icon"></i>
                     </div>
@@ -69,7 +68,7 @@
                     </ul>
                 </li>
                 <li>
-                    <div class="sidebar-mid-category-header" data-bs-toggle="collapse" data-bs-target="#submenu-workflow" aria-expanded="false">
+                    <div class="sidebar-mid-category-header collapsed" data-bs-toggle="collapse" data-bs-target="#submenu-workflow" aria-expanded="false">
                         <div class="d-flex"><i class="fas fa-project-diagram"></i><span class="menu-text">워크플로우</span></div>
                         <i class="fas fa-chevron-down toggle-icon chevron-icon"></i>
                     </div>
@@ -90,7 +89,7 @@
                     </ul>
                 </li>
                 <li>
-                    <div class="sidebar-mid-category-header" data-bs-toggle="collapse" data-bs-target="#submenu-analysis" aria-expanded="false">
+                    <div class="sidebar-mid-category-header collapsed" data-bs-toggle="collapse" data-bs-target="#submenu-analysis" aria-expanded="false">
                         <div class="d-flex"><i class="fas fa-chart-bar"></i><span class="menu-text">데이터분석/의사결정</span></div>
                         <i class="fas fa-chevron-down toggle-icon chevron-icon"></i>
                     </div>
@@ -124,14 +123,15 @@
                 <p>NE능률 사내 AI 업무 활용 사례를 공유하고 확산하는 플랫폼입니다.</p>
             </div>
             <div class="content-wrapper" id="content-loader" style="padding: 0;">
-                <!-- 동적 본문 영역 -->
-            </div>
+                </div>
         </main>
     </div>
+
     <footer class="app-footer">
-        <p>© 2025 NE Neungyule | AI 업무 활용 사례집</p>
+        <p>© 2025 NE 능률 | AI 업무 활용 사례집</p>
     </footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
-</body>
+    <script src="js/search.js"></script> </body>
 </html>
