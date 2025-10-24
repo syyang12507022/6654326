@@ -1,6 +1,4 @@
 // js/search.js
-// let allCasesData = []; // <--- 이 줄을 삭제합니다!
-
 /**
  * [MOVED] Parses all case data from the sidebar links and stores it in the global allCasesData array (declared in main.js).
  * Called once when main.js initializes.

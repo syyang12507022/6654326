@@ -275,7 +275,7 @@ body {
 
 /* --- [NEW] 홈 화면 동적 카드 및 검색창 스타일 --- */
 
-/* 1. 홈 카드 애니메이션 */
+/* 1. 홈 카드 애니메이션 (★ 수정됨) */
 @keyframes slideInUp {
     from {
         opacity: 0;
@@ -283,33 +283,70 @@ body {
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        /* 'translateY(0)'이 올바른 최종값입니다. */
+        transform: translateY(0); 
     }
 }
 
-/* 2. 홈 카드 스타일 */
+/* 2. 홈 카드 스타일 (★ 수정됨) */
 .dynamic-card {
-    border: 0;
+    border: 2px solid transparent; /* 호버 시 레이아웃 밀림 방지를 위해 투명 테두리 추가 */
     box-shadow: var(--shadow);
     border-radius: var(--border-radius);
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    /* transition에 border-color 추가 */
+    transition: transform var(--transition-speed) ease, 
+                box-shadow var(--transition-speed) ease, 
+                border-color var(--transition-speed) ease; 
+    
+    /* ★ 수정: 'opacity'의 기본값을 1로 변경하여 투명해지는 버그 수정 */
+    opacity: 1; 
+    
+    /* 'slideInUp' 애니메이션은 'from {opacity: 0}'에서 시작하므로 
+       페이지 로드 시 이 'opacity: 1'을 덮어쓰고 애니메이션을 실행합니다. */
     animation: slideInUp 0.6s ease-out forwards;
-    opacity: 0; /* 애니메이션 시작을 위해 0으로 설정 */
+    
     cursor: default; /* 기본 커서로 변경 (카드 자체는 클릭X) */
 }
 
-/* 카드에 마우스 호버 시 효과: 살짝 커지는 효과 추가 */
+/* 카드에 마우스 호버 시 효과 (★ 수정됨) */
 .dynamic-card:hover {
+    /* ★ 수정: 'forwards'로 고정된 'slideInUp' 애니메이션을 'none'으로 해제하여
+       아래 'transform'이 'transition'에 의해 정상적으로 적용되도록 함 */
+    animation: none; 
+    
     transform: translateY(-5px) scale(1.03); /* scale(1.03)으로 확대 효과 */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary-color); /* 호버 시 테두리 색상 강조 */
 }
 
-/* 카드의 아이콘 스타일 */
+/* 카드의 아이콘 스타일 (★ 수정됨) */
 .dynamic-card .card-icon {
     font-size: 2.5rem;
     color: var(--primary-color);
     margin-bottom: 15px;
+    perspective: 1000px; /* 3D 효과를 위한 perspective 추가 */
 }
+
+/* ★ 신규: 아이콘 3D 변형 준비 */
+.dynamic-card .card-icon i {
+    transform-style: preserve-3d;
+    /* 애니메이션 종료 후 0도로 유지되도록 초기 transform 설정 */
+    transform: rotateY(0deg); 
+    /* 호버 종료 시 원래대로 돌아오는 전환 효과 추가 */
+    transition: transform var(--transition-speed) ease; 
+}
+
+/* ★ 신규: 빠르게 회전 후 멈추는 3D 애니메이션 정의 (2바퀴) */
+@keyframes spinFastThenStop {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(720deg); } /* 0.2초 동안 2바퀴 (360 * 2) 회전 후 멈춤 */
+}
+
+/* ★ 신규: 카드 호버 시 0.2초간 3D 회전 후 멈춤 */
+.dynamic-card:hover .card-icon i {
+    animation: spinFastThenStop 0.2s ease-out forwards; /* 0.2초 동안 1회 실행 후 멈춤 */
+}
+
 
 /* 카드의 제목 스타일 */
 .dynamic-card .card-title {
@@ -449,3 +486,4 @@ body {
     border-radius: var(--border-radius);
     background-color: #f8f9fa;
 }
+
