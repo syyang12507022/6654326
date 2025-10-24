@@ -1,0 +1,111 @@
+{
+  "mainCategories": [
+    {
+      "type": "main-category",
+      "name": "자동화 사례",
+      "icon": "fas fa-cogs",
+      "subItems": [
+        {
+          "type": "mid-category",
+          "id": "customer",
+          "name": "고객 상담",
+          "icon": "fas fa-headset",
+          "subItems": [
+            {
+              "type": "sub-category",
+              "id": "customer-gpts",
+              "name": "[GPTs 활용]",
+              "icon": "fab fa-teamspeak",
+              "cases": [
+                {
+                  "id": "case-customer-gpts",
+                  "title": "PDF 문항 추출 (고객 Ver.)",
+                  "src": "cases/case-customer-gpts.html"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "mid-category",
+          "id": "doc",
+          "name": "문서/데이터 처리",
+          "icon": "fas fa-file-alt",
+          "subItems": [
+            {
+              "type": "sub-category",
+              "id": "doc-python",
+              "name": "[Python 활용]",
+              "icon": "fab fa-python",
+              "cases": [
+                {
+                  "id": "case-doc-python",
+                  "title": "PDF 문항 자동 추출",
+                  "src": "cases/case-doc-python.html"
+                }
+              ]
+            },
+            {
+              "type": "sub-category",
+              "id": "doc-excel-vba",
+              "name": "[Excel/VBA 활용]",
+              "icon": "fas fa-file-excel",
+              "cases": [
+                {
+                  "id": "case-excel-vba",
+                  "title": "반복 엑셀 보고서 자동화",
+                  "src": "cases/case-excel-vba.html"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "mid-category",
+          "id": "workflow",
+          "name": "워크플로우",
+          "icon": "fas fa-project-diagram",
+          "subItems": [
+            {
+              "type": "sub-category",
+              "id": "workflow-gpts",
+              "name": "[GPTs 활용]",
+              "icon": "fab fa-teamspeak",
+              "cases": [
+                {
+                  "id": "case-workflow-gpts",
+                  "title": "PDF 문항 추출 (워크플로우 Ver.)",
+                  "src": "cases/case-workflow-gpts.html"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "mid-category",
+          "id": "analysis",
+          "name": "데이터분석/의사결정",
+          "icon": "fas fa-chart-bar",
+          "subItems": [
+            {
+              "type": "sub-category",
+              "id": "analysis-chatbot",
+              "name": "[GPTs 활용 챗봇]",
+              "icon": "fas fa-robot",
+              "cases": [
+                {
+                  "id": "case-analysis-chatbot",
+                  "title": "PDF 문항 추출 (분석 챗봇 Ver.)",
+                  "src": "cases/case-analysis-chatbot.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "main-category-spacer"
+    }
+  ]
+}

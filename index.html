@@ -8,7 +8,8 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet"> </head>
+    <link href="css/style.css?v=1.2" rel="stylesheet"> 
+</head>
 <body>
     <header class="app-header">
         <button class="menu-toggle d-lg-none" id="sidebarToggleMobile"><i class="fas fa-bars"></i></button>
@@ -19,97 +20,10 @@
 
     <div class="app-container">
         <nav class="app-sidebar" id="sidebar">
-            <ul class="app-sidebar-menu">
-                <li class="app-sidebar-main-category">
-                    <div class="sidebar-main-category-header">
-                        <i class="fas fa-cogs"></i><span class="menu-text">자동화 사례</span>
-                    </div>
-                </li>
-                <li>
-                    <div class="sidebar-mid-category-header collapsed" data-bs-toggle="collapse" data-bs-target="#submenu-customer" aria-expanded="false">
-                        <div class="d-flex"><i class="fas fa-headset"></i><span class="menu-text">고객 상담</span></div>
-                        <i class="fas fa-chevron-down toggle-icon chevron-icon"></i>
-                    </div>
-                    <ul class="sidebar-submenu collapse" id="submenu-customer">
-                        <li class="app-sidebar-item">
-                            <div class="sidebar-sub-category-header" data-bs-toggle="collapse" data-bs-target="#case-list-customer-gpts" aria-expanded="false">
-                                <div class="d-flex"><i class="fab fa-teamspeak"></i><span class="menu-text">[GPTs 활용]</span></div>
-                                <i class="fas fa-chevron-down toggle-icon chevron-icon"></i>
-                            </div>
-                            <ul class="sidebar-case-list collapse" id="case-list-customer-gpts">
-                                <li class="app-sidebar-item">
-                                    <a href="#case-customer-gpts" class="app-sidebar-link case-link" data-src="cases/case-customer-gpts.html">
-                                        <span class="menu-text">PDF 문항 추출 (고객 Ver.)</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <div class="sidebar-mid-category-header collapsed" data-bs-toggle="collapse" data-bs-target="#submenu-doc" aria-expanded="false">
-                        <div class="d-flex"><i class="fas fa-file-alt"></i><span class="menu-text">문서/데이터 처리</span></div>
-                        <i class="fas fa-chevron-down toggle-icon chevron-icon"></i>
-                    </div>
-                    <ul class="sidebar-submenu collapse" id="submenu-doc">
-                        <li class="app-sidebar-item">
-                            <div class="sidebar-sub-category-header" data-bs-toggle="collapse" data-bs-target="#case-list-doc-python" aria-expanded="false">
-                                <div class="d-flex"><i class="fab fa-python"></i><span class="menu-text">[Python 활용]</span></div>
-                                <i class="fas fa-chevron-down toggle-icon chevron-icon"></i>
-                            </div>
-                            <ul class="sidebar-case-list collapse" id="case-list-doc-python">
-                                <li class="app-sidebar-item">
-                                    <a href="#case-doc-python" class="app-sidebar-link case-link" data-src="cases/case-doc-python.html">
-                                        <span class="menu-text">PDF 문항 자동 추출</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <div class="sidebar-mid-category-header collapsed" data-bs-toggle="collapse" data-bs-target="#submenu-workflow" aria-expanded="false">
-                        <div class="d-flex"><i class="fas fa-project-diagram"></i><span class="menu-text">워크플로우</span></div>
-                        <i class="fas fa-chevron-down toggle-icon chevron-icon"></i>
-                    </div>
-                    <ul class="sidebar-submenu collapse" id="submenu-workflow">
-                        <li class="app-sidebar-item">
-                            <div class="sidebar-sub-category-header" data-bs-toggle="collapse" data-bs-target="#case-list-workflow-gpts" aria-expanded="false">
-                                <div class="d-flex"><i class="fab fa-teamspeak"></i><span class="menu-text">[GPTs 활용]</span></div>
-                                <i class="fas fa-chevron-down toggle-icon chevron-icon"></i>
-                            </div>
-                            <ul class="sidebar-case-list collapse" id="case-list-workflow-gpts">
-                                <li class="app-sidebar-item">
-                                    <a href="#case-workflow-gpts" class="app-sidebar-link case-link" data-src="cases/case-workflow-gpts.html">
-                                        <span class="menu-text">PDF 문항 추출 (워크플로우 Ver.)</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <div class="sidebar-mid-category-header collapsed" data-bs-toggle="collapse" data-bs-target="#submenu-analysis" aria-expanded="false">
-                        <div class="d-flex"><i class="fas fa-chart-bar"></i><span class="menu-text">데이터분석/의사결정</span></div>
-                        <i class="fas fa-chevron-down toggle-icon chevron-icon"></i>
-                    </div>
-                    <ul class="sidebar-submenu collapse" id="submenu-analysis">
-                        <li class="app-sidebar-item">
-                            <div class="sidebar-sub-category-header" data-bs-toggle="collapse" data-bs-target="#case-list-analysis-chatbot" aria-expanded="false">
-                                <div class="d-flex"><i class="fas fa-robot"></i><span class="menu-text">[GPTs 활용 챗봇]</span></div>
-                                <i class="fas fa-chevron-down toggle-icon chevron-icon"></i>
-                            </div>
-                            <ul class="sidebar-case-list collapse" id="case-list-analysis-chatbot">
-                                <li class="app-sidebar-item">
-                                    <a href="#case-analysis-chatbot" class="app-sidebar-link case-link" data-src="cases/case-analysis-chatbot.html">
-                                        <span class="menu-text">PDF 문항 추출 (분석 챗봇 Ver.)</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li class="app-sidebar-main-category">
+            <ul class="app-sidebar-menu" id="sidebar-menu-list">
+                <li class="p-3 text-center">
+                    <div class="spinner-border text-light" role="status">
+                        <span class="visually-hidden">Loading...</span>
                     </div>
                 </li>
             </ul>
@@ -130,6 +44,7 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/search.js"></script> </body>
+    <script src="js/main.js?v=1.2"></script>
+    <script src="js/search.js?v=1.2"></script> 
+</body>
 </html>

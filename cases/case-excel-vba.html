@@ -1,0 +1,51 @@
+<div id="case-excel-vba" class="case-card case-content active">
+    <h2><i class="fas fa-file-excel me-2"></i>반복적인 엑셀 보고서 자동화 (VBA)</h2>
+    <p class="lead">
+        <span class="badge me-2">작성자: OOO</span>
+        <span class="badge me-2">부서: 인사전략팀</span>
+        <span class="badge bg-success">Excel VBA</span>
+    </p>
+
+    <hr>
+
+    <section class="case-section">
+        <h3>1. 어떤 문제가 있었나요? (As-Is)</h3>
+        <p>매월 말, 여러 시스템에서 다운로드한 엑셀 데이터를 취합하여 동일한 양식의 주간 보고서를 만드는 데 3시간 이상 소요되었습니다. 단순 복사/붙여넣기 작업이 많아 실수가 잦았습니다.</p>
+    </section>
+
+    <section class="case-section">
+        <h3>2. 어떻게 해결했나요? (To-Be)</h3>
+        <p>Excel VBA 매크로를 작성하여 이 과정을 자동화했습니다.</p>
+        <ul class="fa-ul">
+            <li><span class="fa-li"><i class="fas fa-check-circle text-success"></i></span>'데이터 취합' 버튼 클릭 시, 지정된 폴더의 모든 엑셀 파일을 순회하며 데이터 자동 복사</li>
+            <li><span class="fa-li"><i class="fas fa-check-circle text-success"></i></span>'보고서 생성' 버튼 클릭 시, 취합된 데이터를 보고서 양식에 맞게 자동 배치 및 서식 적용</li>
+        </ul>
+    </section>
+
+    <section class="case-section">
+        <h3>3. 성과 (Result)</h3>
+        <p><strong>월 3시간 &rarr; 1분</strong>으로 작업 시간이 단축되었으며, 데이터 누락이나 오기입 같은 휴먼 에러가 사라졌습니다.</p>
+    </section>
+
+    <section class="case-section">
+        <h3>4. 핵심 VBA 코드 (TIPS)</h3>
+        <pre><code class="language-vba">
+' 예시: 특정 폴더의 모든 파일 순회
+Sub LoopAllExcelFiles()
+    Dim MyFolder As String
+    Dim MyFile As String
+    
+    MyFolder = "C:\Users\YourName\Documents\RawData"
+    MyFile = Dir(MyFolder & "\*.xlsx")
+    
+    Do While MyFile <> ""
+        ' 여기에 파일 열고 데이터 복사하는 코드 작성
+        ' Workbooks.Open(Filename:=MyFolder & "\" & MyFile)
+        Debug.Print "Processing " & MyFile
+        MyFile = Dir
+    Loop
+End Sub
+        </code></pre>
+        <small class="text-muted">※ 위 코드는 예시이며, 실제 동작을 위해서는 추가적인 코드 작성이 필요합니다.</small>
+    </section>
+</div>
