@@ -1,0 +1,160 @@
+<style>
+    /* 모든 이미지에 공통적으로 적용될 스타일 */
+    .img-hover-zoom {
+        transition: transform 0.3s ease-in-out; /* 부드러운 전환 효과 */
+    }
+
+    /* 마우스 오버 시 확대 */
+    .img-hover-zoom:hover {
+        transform: scale(1.05); /* 5% 확대 (원하는 비율로 조절 가능) */
+    }
+
+    /* 이미지 크기 조절을 위한 스타일 추가 */
+    .img-scaled-down {
+        /*
+          max-height를 height로 변경하여 컨테이너 높이의 90%를
+          강제로 차지하도록 수정합니다.
+        */
+        height: 90%; 
+        width: 90%; /* 너비도 90%로 줄임 */
+        object-fit: cover; /* 비율 유지하며 채우기 */
+        display: block; /* margin auto 적용을 위해 블록 요소로 변경 */
+        margin: 0 auto; /* 가운데 정렬 */
+    }
+</style>
+
+<div id="case-doc-vba-tax" class="case-card case-content active">
+    <h2><i class="fas fa-file-invoice-dollar"></i> [데이터/메일] VBA 활용 마감 전자세금계산서 이메일 자동 발송</h2>
+    <p class="lead"><span class="badge me-2">작성자: (재무팀/회계팀) (가상)</span><span class="badge">부문: 데이터/메일 자동화</span></p>
+
+    <div class="alert alert-secondary p-3 mb-4">
+        <ul class="list-unstyled mb-0" style="font-size: 0.95rem;">
+            <li class="mb-2">1️⃣ <strong>구현 사례 :</strong> [데이터/메일] VBA 활용 마감 전자세금계산서 이메일 자동 발송</li>
+            <li class="mb-2">2️⃣ <strong>활용 부서 :</strong> (재무팀/회계팀) (가상)</li>
+            <li class="mb-2">3️⃣ <strong>구현 도구 :</strong> VBA (Excel/Outlook)</li>
+            <li class="mb-2">4️⃣ <strong>활용 기술 :</strong> VBA 매크로, 데이터 처리, Outlook 이메일 자동 발송</li>
+        </ul>
+    </div>
+
+    <aside class="alert alert-light mb-4">
+        <h5 class="alert-heading mb-0" style="font-size: 1rem;">📌 <strong>VBA (Excel/Outlook)란?</strong></h5>
+        <hr>
+        <p class="mb-0 small">
+            Excel과 Outlook 프로그램 간의 작업을 자동화하는 기능이에요. 국세청에서 다운로드한 엑셀 데이터를 VBA가 읽어들여, 담당자별로 공급가액/세액 등이 포함된 메일 본문을 자동으로 만들고 Outlook을 통해 일괄 발송합니다.
+        </p>
+    </aside>
+
+    <aside class="alert alert-light mb-4">
+        <h5 class="alert-heading mb-3"><i class="fas fa-podcast me-2"></i> 구현사례 소개 팟캐스트</h5>
+        <hr>
+        <p class="mb-2">사례를 살펴보기 전, 팟캐스트를 청취해 보세요.</p>
+        
+        <audio controls class="w-100 mb-3" style="min-height: 50px;">
+            <source src="assets/audio/vba-case-tax.m4a" type="audio/mp4">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <ul class="list-unstyled small text-muted mb-0">
+            <li class="mb-2">• 본 팟캐스트는 NotebookLM으로 제작되었습니다.</li>
+            <li>
+                <a href="https://notebooklm.google.com/" target="_blank" class="text-decoration-none">
+                    <div class="bg-white border rounded p-2 px-3" style="font-family: 'Courier New', Courier, monospace; font-size: 0.9rem;">
+                        notebooklm.google.com
+                        <br>
+                        <span class="text-primary">https://notebooklm.google.com/</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <h3>1. 성과요약</h3>
+    <p>VBA 자동화를 통해, 매월 반복적으로 발생하던 '마감 전자세금계산서 이메일 발송' 업무를 완전 자동화하여, 난이도가 낮고 반복적인 수작업에 소요되던 시간을 획기적으로 단축시켰습니다.</p>
+    
+    <div class="alert alert-primary fw-bold text-center fs-5">➡️ 반복적인 세금계산서 발송 업무 완전 자동화!</div>
+
+    <h4 class="mt-4">자동화 프로세스 이미지</h4>
+    <img src="assets/images/vba-case-tax1.png" class="img-fluid img-hover-zoom" alt="자동화 프로세스 다이어그램">
+
+    
+    <h3 class="mt-5">2. 개발배경</h3>
+    <p><strong>[ 업무 상황 ]</strong><br> 매월 마감 전자세금계산서 이메일 발송 업무가 필요했습니다.</p>
+    <p><strong>[ 비효율 ]</strong><br> 해당 업무는 난이도가 낮고 반복적이며 비용이 발생함에도 불구하고, 담당자가 국세청 자료를 보고 수작업으로 담당자를 확인하고 금액을 작성하여 메일을 발송하는 데 많은 시간을 할애하고 있었습니다.</p>
+
+    <h3 class="mt-5">3. 개발과정</h3>
+    <p><strong>[ VBA를 통한 세금계산서 메일 발송 자동화 ]</strong></p>
+    
+    <h4 class="mt-4">VBA 자동화 핵심 로직</h4>
+    <aside class="alert">
+        <h5 class="alert-heading">💡 자동화 이전/이후 프로세스</h5>
+        <hr>
+        <code>
+[자동화 이전 (수작업)]
+1. 국세청 자료의 메일 주소 확인
+2. 수작업으로 담당자 확인
+3. 수작업으로 공급가액, 세액 등 작성 후 메일 발송
+
+[자동화 이후 (VBA)]
+1. 매월 마감 시, 국세청 전자세금계산서 다운로드 (엑셀)
+2. (VBA 실행) 엑셀 데이터를 기반으로 담당자, 메일 주소, 금액 자동 취합
+3. (VBA 실행) 담당자별 메일 본문 자동 생성
+4. (VBA 실행) Outlook을 통해 해당 직원에게 일괄 메일 자동 발송
+        </code>
+    </aside>
+    
+    <h4 class="mt-4">VBA(Excel/Outlook) 매크로 실행 화면</h4>
+    <p>매월 다운로드한 국세청 엑셀 파일을 준비하고 매크로를 실행하면, 담당자별 메일이 자동으로 발송됩니다.</p>
+
+    <div class="row d-flex align-items-stretch justify-content-center"> 
+        <div class="col-md-6 mb-3 text-center"> 
+            <img src="assets/images/vba-case-tax-code.png" class="img-scaled-down img-hover-zoom" alt="Excel VBA 코드 스크린샷">
+        </div>
+        <div class="col-md-6 mb-3 text-center"> 
+            <img src="assets/images/vba-case-tax-result.png" class="img-scaled-down img-hover-zoom" alt="자동 발송된 메일 화면">
+        </div>
+    </div>
+
+
+    <h3 class="mt-5">4. 이슈 발생 및 해결 방안</h3>
+    <p class="text-muted small"><em>(이슈 발생 및 해결 방안은 현재 수집 중이며, 추후 추가될 예정입니다.)</em></p>
+    <ul>
+        <li><strong>(이슈 사항 1)</strong><br> 내용: (내용 추가 예정)<br>해결 방안: (해결 방안 추가 예정)</li>
+        <li><strong>(이슈 사항 2)</strong><br> 내용: (내용 추가 예정)<br>해결 방안: (해결 방안 추가 예정)</li>
+    </ul>
+
+
+    <h3 class="mt-5">5. 도입 성과 상세</h3>
+    <p>VBA 기반 자동화를 통해 세금계산서 발송 업무를 자동화하고 휴먼 에러를 방지했습니다.</p>
+    
+    <h5 class="mt-4">업무 시간 비교</h5>
+    <ul class="list-unstyled">
+        <li><i class="fas fa-minus-circle text-danger me-2"></i> <strong>기존 (수작업):</strong> 월 (시간 확인 중) 소요 (담당자 확인, 메일 수기 작성 및 발송)</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i> <strong>개선 (자동화):</strong> 월 (시간 확인 중) 소요 (자동 실행 및 모니터링)</li>
+    </ul>
+
+    <h5 class="mt-4">추가 개선 효과</h5>
+    <ul class="list-unstyled">
+        <li><i class="fas fa-check-circle text-success me-2"></i>난이도가 낮고 반복적인 발송 업무에서 해방</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i>수작업 작성으로 인한 휴먼 에러 (금액, 담당자 오류) 방지</li>
+        <li><i class("fas fa-check-circle text-success me-2")></i>매월 마감 업무 시간 단축 및 정시 발송 가능</li>
+    </ul>
+
+    <h3 class="mt-5">6. 첨부파일</h3>
+    <p>아래 링크를 클릭하여 자동화 관련 파일을 다운로드할 수 있습니다.</p>
+    
+    <ul class="list-unstyled">
+        <li class="mb-2">
+            <i class="fas fa-download me-2 text-primary"></i>
+            <a href="assets/files/vba-tax-script.xlsm" download="vba-tax-script.xlsm">
+                첨부파일 1 (세금계산서 발송 매크로.xlsm)
+            </a>
+        </li>
+        <li class="mb-2">
+            <i class="fas fa-download me-2 text-primary"></i>
+            <a href="assets/files/vba-tax-guide.txt" download="vba-tax-guide.txt">
+                첨부파일 2 (사용 가이드.txt)
+            </a>
+        </li>
+    </ul>
+
+</div>

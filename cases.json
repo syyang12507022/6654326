@@ -18,11 +18,18 @@
               "icon": "fab fa-teamspeak",
               "cases": [
                 {
-                  "id": "case-customer-gpts",
-                  "title": "PDF 문항 추출 (고객 Ver.)",
-                  "src": "cases/case-customer-gpts.html"
+                  "id": "case-doc-chatbot",
+                  "title": "NELT 상담 챗봇",
+                  "src": "cases/case-doc-chatbot.html"
                 }
               ]
+            },
+            {
+              "type": "sub-category",
+              "id": "customer-chatbot",
+              "name": "[챗봇 활용]",
+              "icon": "fas fa-robot",
+              "cases": []
             }
           ]
         },
@@ -40,7 +47,7 @@
               "cases": [
                 {
                   "id": "case-doc-python",
-                  "title": "PDF 문항 자동 추출",
+                  "title": "PDF 교재 문항 이미지 추출·분할 자동화",
                   "src": "cases/case-doc-python.html"
                 }
               ]
@@ -50,13 +57,21 @@
               "id": "doc-excel-vba",
               "name": "[Excel/VBA 활용]",
               "icon": "fas fa-file-excel",
-              "cases": [
-                {
-                  "id": "case-excel-vba",
-                  "title": "반복 엑셀 보고서 자동화",
-                  "src": "cases/case-excel-vba.html"
-                }
-              ]
+              "cases": []
+            },
+            {
+              "type": "sub-category",
+              "id": "doc-appsscript",
+              "name": "[Apps Script 활용]",
+              "icon": "fas fa-cogs",
+              "cases": []
+            },
+            {
+              "type": "sub-category",
+              "id": "doc-db-automation",
+              "name": "[DB 자동화]",
+              "icon": "fas fa-database",
+              "cases": []
             }
           ]
         },
@@ -71,11 +86,31 @@
               "id": "workflow-gpts",
               "name": "[GPTs 활용]",
               "icon": "fab fa-teamspeak",
+              "cases": []
+            },
+            {
+              "type": "sub-category",
+              "id": "workflow-appsscript",
+              "name": "[Apps Script 활용]",
+              "icon": "fas fa-cogs",
               "cases": [
                 {
-                  "id": "case-workflow-gpts",
-                  "title": "PDF 문항 추출 (워크플로우 Ver.)",
-                  "src": "cases/case-workflow-gpts.html"
+                  "id": "case-doc-appsscript",
+                  "title": "부서별 업무 요청 데이터 취합 자동화",
+                  "src": "cases/case-doc-appsscript.html"
+                }
+              ]
+            },
+            {
+              "type": "sub-category",
+              "id": "workflow-excel-vba",
+              "name": "[Excel/VBA 활용]",
+              "icon": "fas fa-file-excel",
+              "cases": [
+                {
+                  "id": "case-doc-db-automation",
+                  "title": "교재 DB작업 AI 업무 자동화",
+                  "src": "cases/case-doc-db-automation.html"
                 }
               ]
             }
@@ -92,11 +127,113 @@
               "id": "analysis-chatbot",
               "name": "[GPTs 활용 챗봇]",
               "icon": "fas fa-robot",
+              "cases": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "main-category",
+      "name": "AI사례집 작업",
+      "icon": "fas fa-pencil-alt",
+      "subItems": [
+        {
+          "type": "mid-category",
+          "id": "work-in-progress",
+          "name": "작업중인 사례",
+          "icon": "fas fa-tasks",
+          "subItems": [
+            {
+              "type": "sub-category",
+              "id": "wip-all",
+              "name": "[전체 사례 목록]",
+              "icon": "fas fa-list-ul",
               "cases": [
                 {
-                  "id": "case-analysis-chatbot",
-                  "title": "PDF 문항 추출 (분석 챗봇 Ver.)",
-                  "src": "cases/case-analysis-chatbot.html"
+                  "id": "case-doc-vba-outlook",
+                  "title": "외부 메일 알람 자동화",
+                  "src": "cases/case-doc-vba-outlook.html"
+                },
+                {
+                  "id": "case-doc-vba-tax",
+                  "title": "마감 전자세금계산서 이메일 발송 자동화",
+                  "src": "cases/case-doc-vba-tax.html"
+                },
+                {
+                  "id": "case-doc-appsscript",
+                  "title": "부서별 업무 요청 데이터 취합 자동화",
+                  "src": "cases/case-doc-appsscript.html"
+                },
+                {
+                  "id": "case-doc-vba-html",
+                  "title": "고객센터 FAQ 챗봇 시스템 제작",
+                  "src": "cases/case-doc-vba-html.html"
+                },
+                {
+                  "id": "case-doc-python-crawl",
+                  "title": "네이버 블로그·카페 아이챌린지 고객 반응 웹크롤링 및 보고서 자동화",
+                  "src": "cases/case-doc-python-crawl.html"
+                },
+                {
+                  "id": "case-doc-python",
+                  "title": "PDF 교재 문항 이미지 추출·분할 자동화",
+                  "src": "cases/case-doc-python.html"
+                },
+                {
+                  "id": "case-doc-chatbot-scramble",
+                  "title": "영어 문장 청크-스크램블 자동화 챗봇",
+                  "src": "cases/case-doc-chatbot-scramble.html"
+                },
+                {
+                  "id": "case-doc-vba-ppt",
+                  "title": "워드 자료 취합·PPT 변환 및 어휘 추출 자동화",
+                  "src": "cases/case-doc-vba-ppt.html"
+                },
+                {
+                  "id": "case-doc-vba",
+                  "title": "HTML 태그 자동화",
+                  "src": "cases/case-doc-vba.html"
+                },
+                {
+                  "id": "case-doc-chatbot",
+                  "title": "NELT 상담 챗봇",
+                  "src": "cases/case-doc-chatbot.html"
+                },
+                {
+                  "id": "case-doc-db-automation",
+                  "title": "교재 DB작업 AI 업무 자동화",
+                  "src": "cases/case-doc-db-automation.html"
+                },
+                {
+                  "id": "case-doc-gas",
+                  "title": "yes24 판매지수 크롤링 자동화",
+                  "src": "cases/case-doc-gas.html"
+                },
+                {
+                  "id": "case-doc-python-news",
+                  "title": "뉴스클리핑 업무 자동화",
+                  "src": "cases/case-doc-python-news.html"
+                },
+                {
+                  "id": "case-doc-vba-stock",
+                  "title": "창고.품목.사업 군별 재고현황 자동화",
+                  "src": "cases/case-doc-vba-stock.html"
+                },
+                {
+                  "id": "case-doc-vba-receivables",
+                  "title": "사업부별 채권잔액 및 수금현황 자동화",
+                  "src": "cases/case-doc-vba-receivables.html"
+                },
+                {
+                  "id": "case-doc-chatbot2",
+                  "title": "중국어 교과서 챗봇 고도화 작업",
+                  "src": "cases/case-doc-chatbot2.html"
+                },
+                {
+                  "id": "case-doc-chatbot3",
+                  "title": "영어 교사 전용 챗봇",
+                  "src": "cases/case-doc-chatbot3.html"
                 }
               ]
             }

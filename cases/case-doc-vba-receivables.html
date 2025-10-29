@@ -1,0 +1,181 @@
+<style>
+    /* 모든 이미지에 공통적으로 적용될 스타일 */
+    .img-hover-zoom {
+        transition: transform 0.3s ease-in-out; /* 부드러운 전환 효과 */
+    }
+
+    /* 마우스 오버 시 확대 */
+    .img-hover-zoom:hover {
+        transform: scale(1.05); /* 5% 확대 (원하는 비율로 조절 가능) */
+    }
+
+    /* 이미지 크기 조절을 위한 스타일 추가 */
+    .img-scaled-down {
+        /*
+          max-height를 height로 변경하여 컨테이너 높이의 90%를
+          강제로 차지하도록 수정합니다.
+        */
+        height: 90%; 
+        width: 90%; /* 너비도 90%로 줄임 */
+        object-fit: cover; /* 비율 유지하며 채우기 */
+        display: block; /* margin auto 적용을 위해 블록 요소로 변경 */
+        margin: 0 auto; /* 가운데 정렬 */
+    }
+</style>
+
+<!-- 
+  ID를 "case-doc-vba-receivables" (가상)으로 변경
+  아이콘을 "fas fa-file-excel" (Excel/VBA)로 변경
+-->
+<div id="case-doc-vba-receivables" class="case-card case-content active">
+    <h2><i class="fas fa-file-excel"></i> [데이터 집계] VBA 활용 사업부별 채권/수금 현황 자동화</h2>
+    <p class="lead"><span class="badge me-2">작성자: (부서명) (가상)</span><span class="badge">부문: 데이터 집계 자동화</span></p>
+
+    <!-- 1. 구현 사례 기본 정보 --><div class="alert alert-secondary p-3 mb-4">
+        <ul class="list-unstyled mb-0" style="font-size: 0.95rem;">
+            <li class="mb-2">1️⃣ <strong>구현 사례 :</strong> [데이터 집계] VBA 활용 사업부별 채권/수금 현황 자동화</li>
+            <li class="mb-2">2️⃣ <strong>활용 부서 :</strong> (부서명) (가상)</li>
+            <li class="mb-2">3️⃣ <strong>구현 도구 :</strong> VBA (Excel)</li>
+            <li class="mb-2">4️⃣ <strong>활용 기술 :</strong> VBA 매크로, SAP 데이터 처리, 데이터 맵핑, 자동 집계</li>
+        </ul>
+    </div>
+
+    <!-- 2. 기술 정의 (VBA 내용으로 변경) --><aside class="alert alert-light mb-4">
+        <h5 class="alert-heading mb-0" style="font-size: 1rem;">📌 <strong>VBA (Visual Basic for Applications)란?</strong></h5>
+        <hr>
+        <p class="mb-0 small">
+            Excel 내에서 반복 작업을 자동화하는 프로그래밍 언어예요. SAP에서 다운로드한 원시 데이터를 수동으로 가공하고, 다른 파일의 값을 찾아 맵핑하는 복잡한 집계 과정을 버튼 하나로 처리할 수 있게 해줍니다.
+        </p>
+    </aside>
+
+    <!-- 3. 팟캐스트 섹션 (오디오 경로만 변경) --><aside class="alert alert-light mb-4">
+        <h5 class="alert-heading mb-3"><i class="fas fa-podcast me-2"></i> 구현사례 소개 팟캐스트</h5>
+        <hr>
+        <p class="mb-2">사례를 살펴보기 전, 팟캐스트를 청취해 보세요.</p>
+        
+        <audio controls class="w-100 mb-3" style="min-height: 50px;">
+            <!-- 오디오 파일 경로 적용 (vba-case-receivables.m4a는 예시) --><source src="assets/audio/vba-case-receivables.m4a" type="audio/mp4">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <ul class="list-unstyled small text-muted mb-0">
+            <li class="mb-2">• 본 팟캐스트는 NotebookLM으로 제작되었습니다.</li>
+            <li>
+                <a href="https://notebooklm.google.com/" target="_blank" class="text-decoration-none">
+                    <div class="bg-white border rounded p-2 px-3" style="font-family: 'Courier New', Courier, monospace; font-size: 0.9rem;">
+                        notebooklm.google.com
+                        <br>
+                        <span class="text-primary">https://notebooklm.google.com/</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- 
+      =================================
+      새로운 목차 구조 적용
+      =================================
+    --><!-- 1. 성과요약 (내용 변경) --><h3>1. 성과요약</h3>
+    <p>VBA 자동화를 통해 <strong>월 3~4시간 소요되던 수작업 데이터 가공 시간을 월 0.5시간으로 단축</strong>시켜, 연간 30시간 이상의 업무 시간을 절약하는 성과를 달성했습니다.</p>
+    
+    <!-- 성과 요약 (내용 변경) --><div class="alert alert-primary fw-bold text-center fs-5">➡️ 연간 30시간 이상 업무 시간 절약!</div>
+
+    <!-- 자동화 프로세스 이미지 (이미지 경로 변경) --><h4 class="mt-4">자동화 프로세스 이미지</h4>
+    <!-- 첫 번째 이미지에 img-hover-zoom 클래스 추가 --><img src="assets/images/vba-case-receivables1.png" class="img-fluid img-hover-zoom" alt="자동화 프로세스 다이어그램">
+
+    
+    <!-- 2. 개발배경 (내용 변경) --><h3 class="mt-5">2. 개발배경</h3>
+    <p><strong>[ 업무 상황 ]</strong><br> 매월 SAP 데이터를 기반으로 사업부별 채권 잔액 및 수금 현황을 집계해야 했습니다.</p>
+    <p><strong>[ 비효율 ]</strong><br> SAP 데이터를 다운로드하여 수작업으로 가공하는 데 매월 3~4시간이 소요되었습니다.</p>
+
+    <!-- 3. 개발과정 (내용 변경) --><h3 class="mt-5">3. 개발과정</h3>
+    <p><strong>[ VBA를 통한 SAP 데이터 자동 가공 및 집계 ]</strong></p>
+    
+    <!-- '프롬프트 설계'를 'VBA 자동화 핵심 로직'으로 변경 --><h4 class="mt-4">VBA 자동화 핵심 로직</h4>
+    <aside class="alert">
+        <h5 class="alert-heading">💡 자동화 이전/이후 프로세스</h5>
+        <hr>
+        <!-- '자동화 이전'과 '자동화 후' 내용을 기반으로 로직 설명으로 변경 -->
+        <code>
+[자동화 이전 (수작업)]
+1. SAP 데이터 다운로드
+2. 사업부별 Sheet 가공 작업 (수작업)
+3. 다른 파일의 값을 찾아 수작업 맵핑
+4. 보고용 사업부 요약 집계 작업 (수작업)
+
+[자동화 이후 (VBA)]
+1. SAP 데이터 다운로드 (붙여넣기)
+2. (VBA 실행) 사업부별 Sheet 자동 가공
+3. (VBA 실행) 타 파일 데이터 자동 맵핑
+4. (VBA 실행) 보고용 사업부 요약 집계 자동 생성
+        </code>
+    </aside>
+    
+    <h4 class="mt-4">VBA 매크로 실행 화면</h4>
+    <p>다운로드한 SAP 원본 데이터를 시트에 붙여넣고 매크로를 실행하면, 모든 가공 및 맵핑, 집계 작업이 자동으로 완료됩니다.</p>
+
+    <div class="row d-flex align-items-stretch justify-content-center"> 
+        <!-- 이미지 경로 변경 (vba-case-receivables-code.png는 예시) -->
+        <div class="col-md-6 mb-3 text-center"> 
+            <img src="assets/images/vba-case-receivables-code.png" class="img-scaled-down img-hover-zoom" alt="VBA 코드 스크린샷">
+        </div>
+        <!-- 이미지 경로 변경 (vba-case-receivables-result.png는 예시) -->
+        <div class="col-md-6 mb-3 text-center"> 
+            <img src="assets/images/vba-case-receivables-result.png" class="img-scaled-down img-hover-zoom" alt="자동 집계 결과 엑셀 화면">
+        </div>
+    </div>
+
+
+    <!-- 4. 이슈 발생 및 해결 방안 (Placeholder로 변경) --><h3 class="mt-5">4. 이슈 발생 및 해결 방안</h3>
+    <p class="text-muted small"><em>(이슈 발생 및 해결 방안은 현재 수집 중이며, 추후 추가될 예정입니다.)</em></p>
+    <ul>
+        <li><strong>(이슈 사항 1)</strong><br> 내용: (내용 추가 예정)<br>해결 방안: (해결 방안 추가 예정)</li>
+        <li><strong>(이슈 사항 2)</strong><br> 내용: (내용 추가 예정)<br>해결 방안: (해결 방안 추가 예정)</li>
+    </ul>
+
+
+    <!-- 5. 도입 성과 상세 (내용 변경) --><h3 class="mt-5">5. 도입 성과 상세</h3>
+    <p>VBA 기반 자동화를 통해 월별 채권/수금 현황 집계 업무가 간소화되었습니다.</p>
+    
+    <h5 class="mt-4">업무 시간 비교</h5>
+    <ul class="list-unstyled">
+        <li><i class="fas fa-minus-circle text-danger me-2"></i> <strong>기존 (수작업):</strong> 월 3~4시간 소요</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i> <strong>개선 (자동화):</strong> 월 0.5시간 소요</li>
+    </ul>
+
+    <h5 class="mt-4">추가 개선 효과</h5>
+    <ul class="list-unstyled">
+        <li><i class="fas fa-check-circle text-success me-2"></i>SAP 데이터 수동 가공 작업 제거</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i>수작업 맵핑으로 인한 휴먼 에러 방지</li>
+        <li><i class("fas fa-check-circle text-success me-2")></i>요약 집계 작업의 반복 노동 해방</li>
+    </ul>
+
+    <!-- =================================
+      ⬇️ 첨부파일 섹션 (파일 경로 예시 변경) ⬇️
+      ================================= -->
+    <h3 class="mt-5">6. 첨부파일</h3>
+    <p>아래 링크를 클릭하여 자동화 관련 파일을 다운로드할 수 있습니다.</p>
+    
+    <ul class="list-unstyled">
+        <!-- 
+          참고: assets/files/ 폴더 안에 실제 파일이 있어야 하며,
+          href="" 와 download="" 경로는 실제 파일명으로 수정해야 합니다.
+        -->
+        <li class="mb-2">
+            <i class="fas fa-download me-2 text-primary"></i>
+            <!-- 예시 1: .xlsm (매크로) 파일 -->
+            <a href="assets/files/vba-receivables-script.xlsm" download="vba-receivables-script.xlsm">
+                첨부파일 1 (채권/수금 집계 매크로.xlsm)
+            </a>
+        </li>
+        <li class="mb-2">
+            <i class="fas fa-download me-2 text-primary"></i>
+            <!-- 예시 2: .txt (가이드) 파일 -->
+            <a href="assets/files/vba-receivables-guide.txt" download="vba-receivables-guide.txt">
+                첨부파일 2 (사용 가이드.txt)
+            </a>
+        </li>
+    </ul>
+
+</div>

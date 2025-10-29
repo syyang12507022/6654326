@@ -1,0 +1,180 @@
+<style>
+    /* 모든 이미지에 공통적으로 적용될 스타일 */
+    .img-hover-zoom {
+        transition: transform 0.3s ease-in-out; /* 부드러운 전환 효과 */
+    }
+
+    /* 마우스 오버 시 확대 */
+    .img-hover-zoom:hover {
+        transform: scale(1.05); /* 5% 확대 (원하는 비율로 조절 가능) */
+    }
+
+    /* 이미지 크기 조절을 위한 스타일 추가 */
+    .img-scaled-down {
+        /*
+          max-height를 height로 변경하여 컨테이너 높이의 90%를
+          강제로 차지하도록 수정합니다.
+        */
+        height: 90%; 
+        width: 90%; /* 너비도 90%로 줄임 */
+        object-fit: cover; /* 비율 유지하며 채우기 */
+        display: block; /* margin auto 적용을 위해 블록 요소로 변경 */
+        margin: 0 auto; /* 가운데 정렬 */
+    }
+</style>
+
+<!-- 
+  ID를 "case-doc-chatbot-materials" (가상)으로 변경
+  아이콘을 "fas fa-robot" (AI/챗봇)로 변경
+-->
+<div id="case-doc-chatbot-materials" class="case-card case-content active">
+    <h2><i class="fas fa-robot"></i> [콘텐츠/서비스] AI 챗봇 활용 교과서 자료 제작 및 서비스 안내 자동화</h2>
+    <p class="lead"><span class="badge me-2">작성자: (부서명) (가상)</span><span class="badge">부문: 콘텐츠 생성/서비스 자동화</span></p>
+
+    <!-- 1. 구현 사례 기본 정보 --><div class="alert alert-secondary p-3 mb-4">
+        <ul class="list-unstyled mb-0" style="font-size: 0.95rem;">
+            <li class="mb-2">1️⃣ <strong>구현 사례 :</strong> [콘텐츠/서비스] AI 챗봇 활용 교과서 자료 제작 및 서비스 안내 자동화</li>
+            <li class="mb-2">2️⃣ <strong>활용 부서 :</strong> (부서명) (가상)</li>
+            <li class="mb-2">3️⃣ <strong>구현 도구 :</strong> AI 챗봇 (LLM)</li>
+            <li class="mb-2">4️⃣ <strong>활용 기술 :</strong> AI (LLM), 프롬프트 엔지니어링, 콘텐츠 자동 생성, 서비스 추천</li>
+        </ul>
+    </div>
+
+    <!-- 2. 기술 정의 (AI 챗봇 내용으로 변경) --><aside class="alert alert-light mb-4">
+        <h5 class="alert-heading mb-0" style="font-size: 1rem;">📌 <strong>AI 챗봇 (LLM)이란?</strong></h5>
+        <hr>
+        <p class="mb-0 small">
+            대규모 언어 모델(LLM)을 기반으로 한 챗봇입니다. 이 사례에서는 교사의 요청에 맞춰 교과서 기반 수업 자료(수행평가, 활동지)를 자동으로 생성하고, 상황에 맞는 자사 서비스(엔이티처 등)를 추천하는 역할까지 수행합니다.
+        </p>
+    </aside>
+
+    <!-- 3. 팟캐스트 섹션 (오디오 경로만 변경) --><aside class="alert alert-light mb-4">
+        <h5 class="alert-heading mb-3"><i class="fas fa-podcast me-2"></i> 구현사례 소개 팟캐스트</h5>
+        <hr>
+        <p class="mb-2">사례를 살펴보기 전, 팟캐스트를 청취해 보세요.</p>
+        
+        <audio controls class="w-100 mb-3" style="min-height: 50px;">
+            <!-- 오디오 파일 경로 적용 (chatbot-case2.m4a는 예시) --><source src="assets/audio/chatbot-case2.m4a" type="audio/mp4">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <ul class="list-unstyled small text-muted mb-0">
+            <li class="mb-2">• 본 팟캐스트는 NotebookLM으로 제작되었습니다.</li>
+            <li>
+                <a href="https://notebooklm.google.com/" target="_blank" class="text-decoration-none">
+                    <div class="bg-white border rounded p-2 px-3" style="font-family: 'Courier New', Courier, monospace; font-size: 0.9rem;">
+                        notebooklm.google.com
+                        <br>
+                        <span class="text-primary">https://notebooklm.google.com/</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- 
+      =================================
+      새로운 목차 구조 적용
+      =================================
+    --><!-- 1. 성과요약 (내용 변경) --><h3>1. 성과요약</h3>
+    <p>AI 챗봇 자동화를 통해, 교사들이 자료를 기획하고 제작하던 시간을 단축하고, 수동으로 홍보하던 자사 서비스를 상황에 맞게 안내하여 업무 효율을 높였습니다. 월 4시간 소요되던 작업을 월 0.2시간으로 단축시켜, <strong>연간 191시간 이상의 업무 시간을 절약</strong>하는 성과를 달성했습니다.</p>
+    
+    <!-- 성과 요약 (내용 변경) --><div class="alert alert-primary fw-bold text-center fs-5">➡️ 연간 191시간 이상 업무 시간 절약!</div>
+
+    <!-- 자동화 프로세스 이미지 (이미지 경로 변경) --><h4 class="mt-4">자동화 프로세스 이미지</h4>
+    <!-- 첫 번째 이미지에 img-hover-zoom 클래스 추가 --><img src="assets/images/chatbot-case2.png" class="img-fluid img-hover-zoom" alt="자동화 프로세스 다이어그램">
+
+    
+    <!-- 2. 개발배경 (내용 변경) --><h3 class="mt-5">2. 개발배경</h3>
+    <p><strong>[ 업무 상황 ]</strong><br> 교사들이 자사 교과서를 기반으로 수행평가 자료를 기획하고 생성하는 데 많은 시간을 쓰고 있었으며, 자사 교과서에 기반한 공식 수행평가 자료가 부족했습니다.</p>
+    <p><strong>[ 비효율 ]</strong><br> 자사에서 다양한 서비스를 제공하고 있음에도, 고객(교사)들이 이를 몰라서 사용하지 못하는 경우가 많았습니다. 기존에는 카톡채널, 엔이티처 메인배너 등 다양한 경로를 통해 각각의 서비스를 개별적으로 소개해야 했습니다.</p>
+    
+
+    <!-- 3. 개발과정 (내용 변경) --><h3 class="mt-5">3. 개발과정</h3>
+    <p><strong>[ AI 챗봇을 통한 자료 제작 및 서비스 추천 ]</strong></p>
+    
+    <!-- '프롬프트 설계'를 'AI 자동화 핵심 로직'으로 변경 --><h4 class="mt-4">AI 자동화 핵심 로직</h4>
+    <aside class="alert">
+        <h5 class="alert-heading">💡 자동화 이전/이후 프로세스</h5>
+        <hr>
+        <!-- '자동화 이전'과 '자동화 후' 내용을 기반으로 로직 설명으로 변경 -->
+        <code>
+[자동화 이전 (수작업)]
+1. 수업 자료(수행평가, 활동지) 제작을 위해 교사 서치
+2. 교사 섭외 후 자료 개발 및 검수
+3. (별도) 카톡채널, 엔이티처 배너 등 다양한 경로로 서비스 홍보
+
+[자동화 이후 (AI 챗봇)]
+1. (챗봇) 교사가 교과서 기반 수업용 자료 제작 요청
+2. (챗봇) 챗봇이 즉시 교과서 기반 자료 생성
+3. (챗봇) 교사의 상황(요청)에 맞는 적절한 엔이티처 서비스 소개/안내
+        </code>
+    </aside>
+    
+    <h4 class="mt-4">AI 챗봇 실행 화면</h4>
+    <p>교사가 챗봇에게 자료를 요청하면, 챗봇이 관련 자료와 함께 활용 가능한 자사 서비스를 함께 안내합니다.</p>
+
+    <div class="row d-flex align-items-stretch justify-content-center"> 
+        <!-- 이미지 경로 변경 (chatbot-case2-code.png는 예시) -->
+        <div class="col-md-6 mb-3 text-center"> 
+            <img src="assets/images/chatbot-case2-code.png" class="img-scaled-down img-hover-zoom" alt="AI 챗봇 요청 화면">
+        </div>
+        <!-- 이미지 경로 변경 (chatbot-case2-result.png는 예시) -->
+        <div class="col-md-6 mb-3 text-center"> 
+            <img src="assets/images/chatbot-case2-result.png" class="img-scaled-down img-hover-zoom" alt="자동 생성된 자료 및 서비스 안내 화면">
+        </div>
+    </div>
+
+
+    <!-- 4. 이슈 발생 및 해결 방안 (Placeholder로 변경) --><h3 class="mt-5">4. 이슈 발생 및 해결 방안</h3>
+    <p class="text-muted small"><em>(이슈 발생 및 해결 방안은 현재 수집 중이며, 추후 추가될 예정입니다.)</em></p>
+    <ul>
+        <li><strong>(이슈 사항 1)</strong><br> 내용: (내용 추가 예정)<br>해결 방안: (해결 방안 추가 예정)</li>
+        <li><strong>(이슈 사항 2)</strong><br> 내용: (내용 추가 예정)<br>해결 방안: (해결 방안 추가 예정)</li>
+    </ul>
+
+
+    <!-- 5. 도입 성과 상세 (내용 변경) --><h3 class="mt-5">5. 도입 성과 상세</h3>
+    <p>AI 챗봇 도입으로 교사의 자료 제작 부담을 줄이고, 자사 서비스 홍보를 자동화했습니다.</p>
+    
+    <h5 class="mt-4">업무 시간 비교</h5>
+    <ul class="list-unstyled">
+        <li><i class="fas fa-minus-circle text-danger me-2"></i> <strong>기존 (수작업):</strong> 월 4시간 소요 (자료 개발 섭외 및 서비스 개별 홍보)</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i> <strong>개선 (자동화):</strong> 월 0.2시간 소요 (챗봇 관리 및 모니터링)</li>
+    </ul>
+
+    <h5 class="mt-4">추가 개선 효과</h5>
+    <ul class="list-unstyled">
+        <li><i class="fas fa-check-circle text-success me-2"></i>교사 섭외/검수 등 자료 개발에 드는 시간 및 비용 절감</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i>부족했던 교과서 기반 수행평가 자료 즉시 제공 가능</li>
+        <li><i class("fas fa-check-circle text-success me-2")></i>상황에 맞는 서비스 자동 추천으로 고객(교사) 경험 개선</li>
+    </ul>
+
+    <!-- =================================
+      ⬇️ 첨부파일 섹션 (파일 경로 예시 변경) ⬇️
+      ================================= -->
+    <h3 class="mt-5">6. 첨부파일</h3>
+    <p>아래 링크를 클릭하여 자동화 관련 파일을 다운로드할 수 있습니다.</p>
+    
+    <ul class="list-unstyled">
+        <!-- 
+          참고: assets/files/ 폴더 안에 실제 파일이 있어야 하며,
+          href="" 와 download="" 경로는 실제 파일명으로 수정해야 합니다.
+        -->
+        <li class="mb-2">
+            <i class="fas fa-download me-2 text-primary"></i>
+            <!-- 예시 1: .txt (프롬프트) 파일 -->
+            <a href="assets/files/chatbot-case2-prompt.txt" download="chatbot-case2-prompt.txt">
+                첨부파일 1 (자료생성 프롬프트.txt)
+            </a>
+        </li>
+        <li class="mb-2">
+            <i class="fas fa-download me-2 text-primary"></i>
+            <!-- 예시 2: .txt (서비스 목록) 파일 -->
+            <a href="assets/files/chatbot-case2-services.txt" download="chatbot-case2-services.txt">
+                첨부파일 2 (서비스소개 목록.txt)
+            </a>
+        </li>
+    </ul>
+
+</div>

@@ -1,0 +1,183 @@
+<style>
+    /* 모든 이미지에 공통적으로 적용될 스타일 */
+    .img-hover-zoom {
+        transition: transform 0.3s ease-in-out; /* 부드러운 전환 효과 */
+    }
+
+    /* 마우스 오버 시 확대 */
+    .img-hover-zoom:hover {
+        transform: scale(1.05); /* 5% 확대 (원하는 비율로 조절 가능) */
+    }
+
+    /* 이미지 크기 조절을 위한 스타일 추가 */
+    .img-scaled-down {
+        /*
+          max-height를 height로 변경하여 컨테이너 높이의 90%를
+          강제로 차지하도록 수정합니다.
+        */
+        height: 90%; 
+        width: 90%; /* 너비도 90%로 줄임 */
+        object-fit: cover; /* 비율 유지하며 채우기 */
+        display: block; /* margin auto 적용을 위해 블록 요소로 변경 */
+        margin: 0 auto; /* 가운데 정렬 */
+    }
+</style>
+
+<!-- 
+  ID를 "case-doc-python-news" (가상)으로 변경
+  아이콘을 "fab fa-python"으로 변경
+-->
+<div id="case-doc-python-news" class="case-card case-content active">
+    <h2><i class="fab fa-python"></i> [데이터 수집] Python 활용 일일 뉴스 클리핑 자동화</h2>
+    <p class="lead"><span class="badge me-2">작성자: (부서명) (가상)</span><span class="badge">부문: 데이터 수집 자동화</span></p>
+
+    <!-- 1. 구현 사례 기본 정보 --><div class="alert alert-secondary p-3 mb-4">
+        <ul class="list-unstyled mb-0" style="font-size: 0.95rem;">
+            <li class="mb-2">1️⃣ <strong>구현 사례 :</strong> [데이터 수집] Python 활용 일일 뉴스 클리핑 자동화</li>
+            <li class="mb-2">2️⃣ <strong>활용 부서 :</strong> (부서명) (가상)</li>
+            <li class="mb-2">3️⃣ <strong>구현 도구 :</strong> Python</li>
+            <li class="mb-2">4️⃣ <strong>활용 기술 :</strong> Python, 웹 크롤링, 데이터 분류, 텍스트 자동화</li>
+        </ul>
+    </div>
+
+    <!-- 2. 기술 정의 (Python 웹 크롤링 내용으로 변경) --><aside class="alert alert-light mb-4">
+        <h5 class="alert-heading mb-0" style="font-size: 1rem;">📌 <strong>Python 웹 크롤링이란?</strong></h5>
+        <hr>
+        <p class="mb-0 small">
+            Python을 사용해 웹사이트(네이버 뉴스 등)의 정보를 자동으로 가져오는 기술이에요. 수십 개의 키워드를 사람이 검색할 필요 없이, 프로그램이 대신 기사를 수집하고 분류해 줍니다.
+        </p>
+    </aside>
+
+    <!-- 3. 팟캐스트 섹션 (오디오 경로만 변경) --><aside class="alert alert-light mb-4">
+        <h5 class="alert-heading mb-3"><i class="fas fa-podcast me-2"></i> 구현사례 소개 팟캐스트</h5>
+        <hr>
+        <p class="mb-2">사례를 살펴보기 전, 팟캐스트를 청취해 보세요.</p>
+        
+        <audio controls class="w-100 mb-3" style="min-height: 50px;">
+            <!-- 오디오 파일 경로 적용 (python-case-news.m4a는 예시) --><source src="assets/audio/python-case-news.m4a" type="audio/mp4">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <ul class="list-unstyled small text-muted mb-0">
+            <li class="mb-2">• 본 팟캐스트는 NotebookLM으로 제작되었습니다.</li>
+            <li>
+                <a href="https://notebooklm.google.com/" target="_blank" class="text-decoration-none">
+                    <div class="bg-white border rounded p-2 px-3" style="font-family: 'Courier New', Courier, monospace; font-size: 0.9rem;">
+                        notebooklm.google.com
+                        <br>
+                        <span class="text-primary">https://notebooklm.google.com/</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- 
+      =================================
+      새로운 목차 구조 적용
+      =================================
+    --><!-- 1. 성과요약 (내용 변경) --><h3>1. 성과요약</h3>
+    <p>Python 기반 자동화를 통해 <strong>월 10시간 소요되던 작업을 월 1.7시간으로 단축</strong>시켜, 연간 100시간 이상의 업무 시간을 절약하는 성과를 달성했습니다.</p>
+    
+    <!-- 성과 요약 (내용 변경) --><div class="alert alert-primary fw-bold text-center fs-5">➡️ 연간 100시간 이상 업무 시간 절약!</div>
+
+    <!-- 자동화 프로세스 이미지 (이미지 경로 변경) --><h4 class="mt-4">자동화 프로세스 이미지</h4>
+    <!-- 첫 번째 이미지에 img-hover-zoom 클래스 추가 --><img src="assets/images/python-case-news1.png" class="img-fluid img-hover-zoom" alt="자동화 프로세스 다이어그램">
+
+    
+    <!-- 2. 개발배경 (내용 변경) --><h3 class="mt-5">2. 개발배경</h3>
+    <p><strong>[ 업무 상황 ]</strong><br> 매일 오전 전사 임직원을 위해 그 날의 교육 관련 기사를 클리핑하여 사내 홈페이지에 업로드 후 메일 발송을 해야 했습니다.</p>
+    <p><strong>[ 비효율 ]</strong><br> 웹 사이트에 수십개의 교육 관련 키워드를 일일이 입력하여 관련 기사를 뽑아내는 과정이 순탄치 않고 소요 시간이 상담했습니다.</p>
+
+    <!-- 3. 개발과정 (내용 변경) --><h3 class="mt-5">3. 개발과정</h3>
+    <p><strong>[ Python을 통한 수집 및 분류 자동화 ]</strong></p>
+    
+    <!-- '프롬프트 설계'를 'Python 자동화 핵심 로직'으로 변경 --><h4 class="mt-4">Python 자동화 핵심 로직</h4>
+    <aside class="alert">
+        <h5 class="alert-heading">💡 자동화 이전/이후 프로세스</h5>
+        <hr>
+        <!-- '자동화 이전'과 '자동화 후' 내용을 기반으로 로직 설명으로 변경 -->
+        <code>
+[자동화 이전 (수작업)]
+1. 네이버에 교육 관련 키워드 수십 개 수기 입력
+   (예: 교육부, 수능, AI디지털교과서, 천재교육, 비상교육...)
+2. 관련 기사 수동 분류
+3. 사내 홈페이지 "뉴스클리핑" 게시판에 업로드
+4. 게시판 형식에 맞게 수정 및 미리보기 확인
+
+[자동화 이후 (Python)]
+1. (Python 실행) 미리 정의된 키워드 목록으로 네이버 뉴스 자동 검색
+2. (Python 실행) 관련 기사 자동 수집 (크롤링)
+3. (Python 실행) 수집된 기사 자동 분류
+4. (Python 실행) 사내 홈페이지 형식에 맞게 텍스트 자동 작성
+5. (결과) 담당자는 작성된 내용을 최종 검토 후 업로드/발송
+        </code>
+    </aside>
+    
+    <h4 class="mt-4">Python 스크립트 실행 화면</h4>
+    <p>Python 스크립트를 매일 오전 정해진 시간에 실행하여 기사를 수집하고 분류합니다.</p>
+
+    <div class="row d-flex align-items-stretch justify-content-center"> 
+        <!-- 이미지 경로 변경 (python-case-news-code.png는 예시) -->
+        <div class="col-md-6 mb-3 text-center"> 
+            <img src="assets/images/python-case-news-code.png" class="img-scaled-down img-hover-zoom" alt="Python 코드 스크린샷">
+        </div>
+        <!-- 이미지 경로 변경 (python-case-news-result.png는 예시) -->
+        <div class="col-md-6 mb-3 text-center"> 
+            <img src="assets/images/python-case-news-result.png" class="img-scaled-down img-hover-zoom" alt="자동화 결과 화면">
+        </div>
+    </div>
+
+
+    <!-- 4. 이슈 발생 및 해결 방안 (Placeholder로 변경) --><h3 class="mt-5">4. 이슈 발생 및 해결 방안</h3>
+    <p class="text-muted small"><em>(이슈 발생 및 해결 방안은 현재 수집 중이며, 추후 추가될 예정입니다.)</em></p>
+    <ul>
+        <li><strong>(이슈 사항 1)</strong><br> 내용: (내용 추가 예정)<br>해결 방안: (해결 방안 추가 예정)</li>
+        <li><strong>(이슈 사항 2)</strong><br> 내용: (내용 추가 예정)<br>해결 방안: (해결 방안 추가 예정)</li>
+    </ul>
+
+
+    <!-- 5. 도입 성과 상세 (내용 변경) --><h3 class="mt-5">5. 도입 성과 상세</h3>
+    <p>Python 기반 자동화를 통해 뉴스 클리핑 업무 시간을 획기적으로 단축시켰습니다.</p>
+    
+    <h5 class="mt-4">업무 시간 비교</h5>
+    <ul class="list-unstyled">
+        <li><i class="fas fa-minus-circle text-danger me-2"></i> <strong>기존 (수작업):</strong> 월 10시간 소요</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i> <strong>개선 (자동화):</strong> 월 1.7시간 소요</li>
+    </ul>
+
+    <h5 class="mt-4">추가 개선 효과</h5>
+    <ul class="list-unstyled">
+        <li><i class="fas fa-check-circle text-success me-2"></i>수십 개 키워드 반복 검색의 단순 노동 해방</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i>기사 분류 및 게시판 업로드 작업 시간 단축</li>
+        <li><. fas fa-check-circle text-success me-2></i>휴먼 에러 가능성 제거</li>
+    </ul>
+
+    <!-- =================================
+      ⬇️ 첨부파일 섹션 (파일 경로 예시 변경) ⬇️
+      ================================= -->
+    <h3 class="mt-5">6. 첨부파일</h3>
+    <p>아래 링크를 클릭하여 자동화 관련 파일을 다운로드할 수 있습니다.</p>
+    
+    <ul class="list-unstyled">
+        <!-- 
+          참고: assets/files/ 폴더 안에 실제 파일이 있어야 하며,
+          href="" 와 download="" 경로는 실제 파일명으로 수정해야 합니다.
+        -->
+        <li class="mb-2">
+            <i class="fas fa-download me-2 text-primary"></i>
+            <!-- 예시 1: .py (파이썬) 파일 -->
+            <a href="assets/files/python-news-script.py" download="python-news-script.py">
+                첨부파일 1 (뉴스 클리핑 스크립트.py)
+            </a>
+        </li>
+        <li class="mb-2">
+            <i class="fas fa-download me-2 text-primary"></i>
+            <!-- 예시 2: .txt (가이드) 파일 -->
+            <a href="assets/files/python-news-guide.txt" download="python-news-guide.txt">
+                첨부파일 2 (실행 가이드.txt)
+            </a>
+        </li>
+    </ul>
+
+</div>

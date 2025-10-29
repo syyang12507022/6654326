@@ -1,0 +1,159 @@
+<style>
+    /* 모든 이미지에 공통적으로 적용될 스타일 */
+    .img-hover-zoom {
+        transition: transform 0.3s ease-in-out; /* 부드러운 전환 효과 */
+    }
+
+    /* 마우스 오버 시 확대 */
+    .img-hover-zoom:hover {
+        transform: scale(1.05); /* 5% 확대 (원하는 비율로 조절 가능) */
+    }
+
+    /* 이미지 크기 조절을 위한 스타일 추가 */
+    .img-scaled-down {
+        /*
+          max-height를 height로 변경하여 컨테이너 높이의 90%를
+          강제로 차지하도록 수정합니다.
+        */
+        height: 90%; 
+        width: 90%; /* 너비도 90%로 줄임 */
+        object-fit: cover; /* 비율 유지하며 채우기 */
+        display: block; /* margin auto 적용을 위해 블록 요소로 변경 */
+        margin: 0 auto; /* 가운데 정렬 */
+    }
+</style>
+
+<!-- ID를 "case-doc-db-automation"로 변경 -->
+<div id="case-doc-db-automation" class="case-card case-content active">
+    <!-- 아이콘 및 제목 변경 -->
+    <h2><i class="fas fa-database"></i> [데이터 처리] 교재 DB 작업 AI 업무 자동화</h2>
+    <!-- 작성자 및 부문 변경 -->
+    <p class="lead"><span class="badge me-2">작성자: (작성자 추후 추가)</span><span class="badge">부문: 콘텐츠 DB 자동화</span></p>
+
+    <!-- 1. 구현 사례 기본 정보 --><div class="alert alert-secondary p-3 mb-4">
+        <ul class="list-unstyled mb-0" style="font-size: 0.95rem;">
+            <li class="mb-2"1️⃣ <strong>구현 사례 :</strong> [데이터 처리] 교재 DB 작업 AI 업무 자동화</li>
+            <li class="mb-2">2️⃣ <strong>활용 부서 :</strong> (콘텐츠 리소스 담당 부서)</li>
+            <li class="mb-2">3️⃣ <strong>구현 도구 :</strong> Excel VBA (ChatGPT 활용)</li>
+            <li class="mb-2">4️⃣ <strong>활용 기술 :</strong> VBA, 텍스트 자동 분리, 엑셀 자동화</li>
+        </ul>
+    </div>
+
+    <!-- 2. 기술 정의 --><aside class="alert alert-light mb-4">
+        <h5 class="alert-heading mb-0" style="font-size: 1rem;">📌 <strong>Excel VBA란?</strong></h5>
+        <hr>
+        <p class="mb-0 small">
+            (기술 정의 내용 추후 추가 예정)
+        </p>
+    </aside>
+
+    <!-- 3. 팟캐스트 섹션 --><aside class="alert alert-light mb-4">
+        <h5 class="alert-heading mb-3"><i class="fas fa-podcast me-2"></i> 구현사례 소개 팟캐스트</h5>
+        <hr>
+        <p class="mb-2">사례를 살펴보기 전, 팟캐스트를 청취해 보세요.</p>
+        
+        <audio controls class="w-100 mb-3" style="min-height: 50px;">
+            <!-- 오디오 파일 경로 placeholder 적용 --><source src="assets/audio/db-automation-case.m4a" type="audio/mp4">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <ul class="list-unstyled small text-muted mb-0">
+            <li class="mb-2">• 본 팟캐스트는 NotebookLM으로 제작되었습니다. (추후 추가 예정)</li>
+            <li>
+                <a href="https://notebooklm.google.com/" target="_blank" class="text-decoration-none">
+                    <div class="bg-white border rounded p-2 px-3" style="font-family: 'Courier New', Courier, monospace; font-size: 0.95rem;">
+                        notebooklm.google.com
+                        <br>
+                        <span class="text-primary">https://notebooklm.google.com/</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- 
+      =================================
+      새로운 목차 구조 적용
+      =================================
+    --><!-- 1. 성과요약 --><h3>1. 성과요약</h3>
+    <p>Excel VBA 자동화를 통해 수동 '복사+붙여넣기' 작업을 대체하여, 1권당 48분의 시간을 절약하고 생산성을 25배 증가시키는 성과를 달성했습니다.</p>
+    
+    <!-- 도입 성과 핵심 요약 -->
+    <div class="alert alert-primary fw-bold text-center fs-5">➡️ 1권당 48분 절약, 생산성 25배 증가!</div>
+
+    <!-- 자동화 프로세스 이미지 -->
+    <h4 class="mt-4">자동화 프로세스 이미지</h4>
+    <!-- 이미지 경로 placeholder 적용 -->
+    <img src="assets/images/db-automation-case1.png" class="img-fluid img-hover-zoom" alt="자동화 프로세스 다이어그램 (추후 추가)">
+
+    
+    <!-- 2. 개발배경 (기존 '1. 배경') --><h3 class="mt-5">2. 개발배경</h3>
+    <!-- 사용자 제공 텍스트 "배경(why)" 삽입 -->
+    <p><strong>[ 업무 상황 ]</strong><br>
+        콘텐츠 리소스 DB화를 위해서는 태깅 항목별로 분리가 필요한데 현재 사람이 텍스트를 ‘복사+붙여넣기’ 방식의 수동으로 진행하고 있어 시간 소요가 많아 고부가가치 업무에 투입 시간 부족.
+    </p>
+    <p><strong>[ 문제점 ]</strong><br>
+        → 리딩튜터 주니어 독해집 지문 40개+문항 수동 작업 시 약 50분 소요! (*지문,문항만 분리 시)
+    </p>
+    
+
+    <!-- 3. 개발과정 (기존 '2. 자동화 과정'에서 이미지 제외) --><h3 class="mt-5">3. 개발과정</h3>
+    <!-- 사용자 제공 텍스트 "자동화 이전/이후" 삽입 -->
+    <p><strong>[ 자동화 이전 프로세스 (What) ]</strong><br>
+        1. 데이터 DB로 정리할 PDF 실행<br>
+        2. 엑셀 시트에 태깅 항목 설정<br>
+        3. PDF에 있는 지문과 각 문장의 지시문, 보기 등의 텍스트를 복사,<br>
+        4. 엑셀 시트의 각 태깅 항목에 맞게 붙여넣기<br>
+        5. 정답 및 해설 부분의 데이터 DB로 정리
+    </p>
+    <p><strong>[ 자동화 이후 프로세스 (How) ]</strong><br>
+        1. Excel VBA 기반 자동화 실행 (상세 로직 추후 추가)<br>
+        (자동화 전 50분 -> 후 2분)
+    </p>
+    
+    <h4 class="mt-4">코드 생성을 위한 프롬프트 설계</h4>
+    <aside class="alert">
+        <!-- 제목 수정 -->
+        <h5 class="alert-heading">💡 Excel VBA 코드 생성을 위한 챗GPT 프롬프트</h5>
+        <hr>
+        <code>(프롬프트 내용 추후 추가 예정)</code>
+    </aside>
+    
+    <h4 class="mt-4">ChatGPT를 활용한 코드 생성 및 실행</h4>
+    <p>(VBA 코드 실행 관련 텍스트 추후 추가 예정)</p>
+
+    <div class="row d-flex align-items-stretch justify-content-center">
+        <!-- 이미지 경로 placeholder 적용 -->
+        <div class="col-md-6 mb-3 text-center">
+            <img src="assets/images/db-automation-case3.png" class="img-scaled-down img-hover-zoom" alt="VBA 코드 스크린샷 2 (추후 추가)">
+        </div>
+        <!-- 이미지 경로 placeholder 적용 -->
+        <div class="col-md-6 mb-3 text-center">
+            <img src="assets/images/db-automation-case2.png" class="img-scaled-down img-hover-zoom" alt="VBA 코드 스크린샷 1 (추후 추가)">
+        </div>
+    </div>
+
+
+    <!-- 4. 이슈 발생 및 해결 방안 (기존 '3. 이슈...') --><h3 class="mt-5">4. 이슈 발생 및 해결 방안</h3>
+    <ul>
+        <li><strong>(이슈 제목)</strong><br> 내용: (이슈 내용 추후 추가 예정)<br>해결 방안: (해결 방안 추후 추가 예정)</li>
+        <li><strong>(이슈 제목)</strong><br> 내용: (이슈 내용 추후 추가 예정)<br>해결 방안: (해결 방안 추후 추가 예정)</li>
+    </ul>
+
+
+    <!-- 5. 도입 성과 상세 (기존 '4. 도입 성과'의 나머지 상세 내용) --><h3 class="mt-5">5. 도입 성과 상세</h3>
+    <p>(도입 성과 상세 텍스트 추후 추가 예정)</p>
+    
+    <h5 class="mt-4">업무 시간 비교</h5>
+    <ul class="list-unstyled">
+        <li><i class="fas fa-minus-circle text-danger me-2"></i> <strong>기존 (수작업):</strong> 1권당 약 50분 소요</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i> <strong>개선 (자동화):</strong> 1권당 2분 소요</li>
+    </ul>
+
+    <h5 class="mt-4">추가 개선 효과</h5>
+    <ul class="list-unstyled">
+        <li><i class="fas fa-check-circle text-success me-2"></i>1권당 48분 절약</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i>생산성 25배 증가</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i>단순 반복 작업 제거로 고부가가치 업무 시간 확보</li>
+    </ul>
+</div>
