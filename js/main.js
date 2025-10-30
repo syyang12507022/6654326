@@ -13,6 +13,7 @@ let sidebarData = null;
  * @param {string} caseId - 케이스 ID (예: "case-1-1")
  */
 function toggleBookmark(caseId) {
+// ... (이하 북마크 관련 함수들 - 변경 없음) ...
     if (!caseId) return;
     let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
     const index = bookmarks.indexOf(caseId);
@@ -128,7 +129,11 @@ function updateBookmarkSidebar() {
     if (existingWrapper) existingWrapper.remove();
 
     if (allCasesData.length === 0 && (JSON.parse(localStorage.getItem('bookmarks')) || []).length > 0) {
-        console.warn("북마크를 그리려 했으나 allCasesData가 아직 준비되지 않았습니다.");
+        // [MODIFIED] allCasesData가 비동기로 로드되므로, 이 경고는 initializeApp에서만 의미가 있습니다.
+        // 북마크 버튼 클릭 시에는 allCasesData가 이미 있어야 합니다.
+        if(sidebarData) { // sidebarData가 로드되었다는 것은 앱 초기화가 진행 중이거나 완료되었다는 뜻
+             console.warn("북마크를 그리려 했으나 allCasesData가 아직 준비되지 않았습니다. (데이터 로딩 중)");
+        }
         return;
     }
     
@@ -153,10 +158,7 @@ function updateBookmarkSidebar() {
 
 /**
  * [MODIFIED] 콘텐츠를 로드하고 화면에 표시하는 함수 (clickedElement 파라미터 추가)
- * @param {string} srcUrl - 불러올 HTML 파일 경로
- * @param {string} targetHash - 활성화할 링크의 href
- * @param {boolean} isSearchResult - 검색 결과 클릭으로 로드되었는지 여부
- * @param {HTMLElement | null} clickedElement - [NEW] 클릭된 앵커 태그 요소
+ * (변경 사항 없음)
  */
 async function loadContent(srcUrl, targetHash, isSearchResult = false, clickedElement = null) {
     const contentLoader = document.getElementById('content-loader');
@@ -221,17 +223,32 @@ async function loadContent(srcUrl, targetHash, isSearchResult = false, clickedEl
         if (!isSearchResult) {
             updateActiveLink(targetHash, clickedElement); // clickedElement 전달
         } else {
-            document.querySelectorAll('.app-sidebar-link.case-link, .sidebar-sub-category-header').forEach(link => {
+            // 검색 결과에서 클릭 시, 모든 사이드바 링크 비활성화
+            document.querySelectorAll('.app-sidebar-link.case-link, .sidebar-sub-category-header, .sidebar-mid-category-header').forEach(link => {
                 link.classList.remove('active');
+                if(link.hasAttribute('data-bs-toggle')) {
+                    link.setAttribute('aria-expanded', 'false');
+                    link.classList.add('collapsed');
+                }
+            });
+            // 모든 콜랩스 메뉴 접기 (북마크 메뉴 제외)
+            document.querySelectorAll('.sidebar-submenu.show, .sidebar-case-list.show').forEach(element => {
+                if (element.id !== 'submenu-bookmarks') {
+                    const collapseInstance = bootstrap.Collapse.getInstance(element);
+                    if (collapseInstance) {
+                        collapseInstance.hide();
+                    }
+                }
             });
         }
 
         window.scrollTo(0, 0); 
 
+        // 홈 화면 로드 시 검색 이벤트 리스너 부착
         if ((targetHash === '#case-home' || contentLoader.querySelector('#case-home')) && typeof attachSearchEventListeners === 'function') {
             attachSearchEventListeners();
              if (!isSearchResult && typeof renderSearchResults === 'function') {
-                renderSearchResults([], '');
+                renderSearchResults([], ''); // 검색 결과 영역 초기화
             }
         }
 
@@ -254,7 +271,9 @@ function updatePageTitle(contentLoader, targetHash, pageTitleH2, pageTitleP) {
     } else {
         const cardElement = contentLoader.querySelector('.case-card'); 
         const cardTitle = cardElement?.querySelector('h2')?.innerText || "사례 상세";
-        const cardBadge = cardElement?.querySelector('.lead .badge:last-of-type')?.innerText || "AI 활용";
+        // [FIX] .lead .badge:last-of-type 대신 .card-header .badge (혹은 더 구체적인 선택자) 사용 고려
+        // 여기서는 .case-card .badge 중 첫 번째 배지를 카테고리로 간주
+        const cardBadge = cardElement?.querySelector('.badge')?.innerText || "AI 활용";
         pageTitleH2.textContent = cardBadge + " 사례";
         pageTitleP.textContent = cardTitle + " 상세 내용입니다.";
     }
@@ -262,14 +281,13 @@ function updatePageTitle(contentLoader, targetHash, pageTitleH2, pageTitleP) {
 
 /**
  * [MODIFIED] 사이드바 링크 활성 상태 업데이트 (clickedElement 파라미터 추가)
- * @param {string} targetHash - 활성화할 링크의 href
- * @param {HTMLElement | null} clickedElement - [NEW] 클릭된 앵커 태그 요소
+ * (변경 사항 없음)
  */
 function updateActiveLink(targetHash, clickedElement = null) {
     // 1. 모든 링크 비활성화
-    document.querySelectorAll('.app-sidebar-link.case-link, .sidebar-sub-category-header').forEach(link => {
+    document.querySelectorAll('.app-sidebar-link.case-link, .sidebar-sub-category-header, .sidebar-mid-category-header').forEach(link => {
         link.classList.remove('active');
-        if(link.classList.contains('sidebar-sub-category-header') || link.classList.contains('sidebar-mid-category-header')) {
+        if(link.hasAttribute('data-bs-toggle')) { // data-bs-toggle이 있는 모든 헤더
             link.setAttribute('aria-expanded', 'false');
             link.classList.add('collapsed'); 
         }
@@ -290,12 +308,12 @@ function updateActiveLink(targetHash, clickedElement = null) {
     if (clickedElement) {
         // 3-1. 클릭된 요소가 있으면, 그것을 targetLink로 사용
         targetLink = clickedElement;
-    } else if (targetHash) {
+    } else if (targetHash && targetHash !== '#case-home') {
         // 3-2. 클릭된 요소가 없으면 (e.g., 페이지 새로고침), querySelector로 첫 번째 링크를 찾음
         targetLink = document.querySelector(`a.case-link[href="${targetHash}"]`);
     } else {
-        // 3-3. targetHash도 없으면 (e.g., 홈)
-        return; // 활성화할 링크 없음
+        // 3-3. targetHash가 없거나 홈이면
+        return; // 활성화할 링크 없음 (홈은 아무것도 활성화 안 됨)
     }
 
     if (!targetLink) return;
@@ -330,10 +348,14 @@ function updateActiveLink(targetHash, clickedElement = null) {
              if (header && header.hasAttribute('data-bs-toggle')) {
                 header.setAttribute('aria-expanded', 'true');
                 header.classList.remove('collapsed');
+                // [FIX] 헤더(e.g., sub-category-header) 자체도 active 표시가 필요할 수 있음
+                // 현재 로직은 case-link만 active 표시함.
+                // 기획에 따라 header.classList.add('active'); 가 필요할 수 있음.
             }
             currentElement = header; 
         } else {
-            currentElement = currentElement.parentElement; 
+            // .collapse를 못 찾으면 부모로 탐색 중단
+            currentElement = null; 
         }
     }
 }
@@ -371,7 +393,7 @@ function buildSidebarHTML(mainCategories) {
                             const caseListId = `case-list-${subCat.id}`;
                             html += `
                                 <li class="app-sidebar-item">
-                                    <div class="sidebar-sub-category-header" data-bs-toggle="collapse" data-bs-target="#${caseListId}" aria-expanded="false">
+                                    <div class="sidebar-sub-category-header collapsed" data-bs-toggle="collapse" data-bs-target="#${caseListId}" aria-expanded="false">
                                         <div class="d-flex"><i class="${subCat.icon}"></i><span class="menu-text">${subCat.name}</span></div>
                                         <i class="fas fa-chevron-down toggle-icon chevron-icon"></i>
                                     </div>
@@ -416,6 +438,7 @@ document.addEventListener('DOMContentLoaded', function () {
             sidebar.classList.toggle('active');
         });
     }
+    // 창 크기 변경 시 모바일 사이드바 닫기
     window.addEventListener('resize', function () {
         if (window.innerWidth > 991 && sidebar?.classList.contains('active')) {
             sidebar.classList.remove('active');
@@ -426,7 +449,7 @@ document.addEventListener('DOMContentLoaded', function () {
      * [MODIFIED] 기본 콘텐츠(홈) 표시 함수 (loadContent 호출 시 null 전달)
      */
     function showDefaultContent() {
-        updateActiveLink(''); // 활성 링크 없음 = 홈 + 모든 메뉴 접기
+        updateActiveLink('#case-home', null); // 홈을 명시적으로 비활성화
         if (logoLink && logoLink.dataset.src && logoLink.getAttribute('href')) {
             loadContent(logoLink.dataset.src, logoLink.getAttribute('href'), false, null); // null 전달
         } else {
@@ -450,6 +473,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // --- [MODIFIED] 사이드바 메뉴 클릭 이벤트 리스너 ---
+    // (변경 사항 없음)
     if (sidebarMenuList) {
         sidebarMenuList.addEventListener('click', function(event) {
             // [MODIFIED] 클릭된 링크 요소를 변수에 저장
@@ -479,36 +503,74 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // --- 초기 실행 ---
-    // (변경 사항 없음)
+    // --- [MODIFIED] 초기 실행 함수 ---
     async function initializeApp() {
+        // [NEW] 검색창 (홈 화면에 있음) 요소를 미리 찾아둡니다.
+        // 홈이 로드되기 전이라도 DOM에는 존재해야 합니다. (index.html에)
+        const searchInput = document.getElementById('caseSearchInput');
+        const searchButton = document.getElementById('caseSearchButton');
+
         try {
             const response = await fetch('cases.json'); 
             if (!response.ok) {
                 throw new Error(`Failed to fetch cases.json: ${response.statusText}`);
             }
             const data = await response.json();
-            sidebarData = data.mainCategories; 
+            sidebarData = data.mainCategories; // 전역 변수에 저장
 
+            // 사이드바 HTML 생성
             const sidebarHTML = buildSidebarHTML(sidebarData);
             if (sidebarMenuList) {
                 sidebarMenuList.innerHTML = sidebarHTML;
             }
 
+            // [MODIFIED] 검색 인덱스 생성 (await 추가)
             if (typeof buildSearchDataFromJSON === 'function') {
-                buildSearchDataFromJSON(sidebarData);
+                
+                // [NEW] 인덱싱 시작 전 검색창 비활성화
+                if (searchInput) {
+                    searchInput.placeholder = "검색 인덱싱 준비 중...";
+                    searchInput.disabled = true;
+                }
+                if (searchButton) {
+                    searchButton.disabled = true;
+                }
+                
+                // [MODIFIED] 비동기 함수가 완료될 때까지 기다림
+                await buildSearchDataFromJSON(sidebarData); 
+                
+                // [NEW] 인덱싱 완료 후 검색창 활성화
+                if (searchInput) {
+                    searchInput.placeholder = "사례 검색...";
+                    searchInput.disabled = false;
+                }
+                if (searchButton) {
+                    searchButton.disabled = false;
+                }
+                console.log("검색창이 활성화되었습니다.");
+
             } else {
                 console.error("buildSearchDataFromJSON function not found in search.js.");
             }
 
+            // 북마크 사이드바 업데이트 (allCasesData가 채워진 후)
             updateBookmarkSidebar();
 
+            // 기본 콘텐츠(홈) 표시
             showDefaultContent();
 
         } catch (error) {
             console.error("앱 초기화 실패:", error);
             if (sidebarMenuList) {
                 sidebarMenuList.innerHTML = `<li class="p-3 text-danger">메뉴를 불러오는 데 실패했습니다. cases.json 파일을 확인해주세요.</li>`;
+            }
+            // [NEW] 에러 발생 시 검색창 비활성화 상태 유지 (메시지 변경)
+            if (searchInput) {
+                searchInput.placeholder = "검색 기능 로드 실패";
+                searchInput.disabled = true;
+            }
+            if (searchButton) {
+                searchButton.disabled = true;
             }
         }
     }
